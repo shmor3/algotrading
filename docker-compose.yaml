@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  codeserver:
+    image: lscr.io/linuxserver/code-server:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./workers/scripts:/config/workspace:rw
+      - ./vsconfig:/config:rw
+    ports:
+      - 8443:8443
+    restart: unless-stopped

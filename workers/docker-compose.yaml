@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  dbworker:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker1:
+    build: .
+    restart: always
+    command: bash -c "python3 worker1.py"
+    volumes:
+      - ./scripts:/var/scripts:ro
+  worker2:
+    build: .
+    restart: always
+    command: bash -c "python3 worker2.py"
+    volumes:
+      - ./scripts:/var/scripts:ro
+  worker3:
+    build: .
+    restart: always
+    command: bash -c "python3 worker3.py"
+    volumes:
+      - ./scripts:/var/scripts:ro

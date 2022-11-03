@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./mongo:/data/db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: quantize
+      MONGO_INITDB_ROOT_PASSWORD: 3vhYo3KwBCFJzexs
+    ports:
+      - "27017:27017"
+  redisdb:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+  rabbitmq:
+    image: rabbitmq:management
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
