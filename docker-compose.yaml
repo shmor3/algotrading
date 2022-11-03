@@ -6,6 +6,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Denver
+      - PASSWORD=9021OMGu812!!
+      - SUDO_PASSWORD=9021OMGu812!!
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
